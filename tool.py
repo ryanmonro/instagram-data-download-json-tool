@@ -14,6 +14,7 @@ try:
 except:
 	exit("ERROR: media.json not found at path")
 data = json.load(fp)
+# for index in ['photos', 'videos']
 try:
 	photos = data['photos']
 except KeyError:
@@ -26,8 +27,11 @@ for photo in photos:
 	try:
 		image = Image.open(path + photo['path'])
 		found += 1
+		datetime = photo['taken_at'].replace('-', ':').replace('T', ' ')
+		print(datetime)
+		print(photo['path'])
 		zeroth = {
-			piexif.ImageIFD.DateTime: photo['taken_at'] 
+			piexif.ImageIFD.DateTime: datetime
 		}
 		comment = piexif.helper.UserComment.dump(photo['caption'])
 		exif = {
