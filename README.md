@@ -32,7 +32,7 @@ Install the packages:
 
 Activate the virtual environment (if you haven't already) as above.
 
-Run the script, replacing `path` with the path to your folder containing media.json and the photos folder (ie `~/Downloads/ryanmonro_part_2`ß:
+Run the script, replacing `path` with the path to your folder containing media.json and the photos folder (ie `~/Downloads/markzuckerberg_part_2`:
 
 `python tool.py [path]`
 
