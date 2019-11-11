@@ -1,6 +1,6 @@
 # Instagram Data Download JSON Tool
 
-Restores the date and time of photos downloaded from Instagram using the Data Download too.
+Restores the date and time of photos downloaded from Instagram using the Data Download tool.
 
 ## Background
 
