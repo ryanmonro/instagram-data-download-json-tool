@@ -34,6 +34,15 @@ Activate the virtual environment (if you haven't already) as above.
 
 Run the script, replacing `path` with the path to your folder containing media.json and the photos folder (ie `~/Downloads/markzuckerberg_part_2`:
 
-`python tool.py [path]`
+If you want the `photos,` run this:
+`python photos.py [path]`
 
-It should spit out the images, in a new folder.
+
+For videos:
+`python videos.py [path]`
+
+It should spit out the images/videos, in a new folder.
+
+## Coming soon:
+
+One tool to rule them all! A script that pulls everything it finds out of media.json and exports all the photos and videos. Wouldn't it be nice?
