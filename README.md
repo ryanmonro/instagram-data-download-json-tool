@@ -8,7 +8,7 @@ Since Facebook went into PR crisis mode in early 2018, they have introduced a nu
 
 One good thing to do with the photos in the Data Download is to upload them somewhere else, such as Google Photos, for safe keeping. Unfortunately, the metadata of all the photos is gone, and the file creation dates are set to whatever date you requested the Data Download. Which is useless. The download also contains a bunch of JSON files, one of which contains all the date/times of when the photos were uploaded through the Instagram app. 
 
-This script outputs the photos with the date and caption in their EXIF data, and the videos are written with the correct modified date. Google Photos (and possible other photo managers) will recognise these as the dates of the photos/videos. Reunited and it feels so good.
+This script outputs the photos and videos with the correct modified date. The photos will also contain the date and caption in their EXIF data. Reunited and it feels so good.
 
 ## Installation
 

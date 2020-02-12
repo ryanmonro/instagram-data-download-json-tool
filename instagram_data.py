@@ -1,5 +1,3 @@
-# TODO: also change mdate of jpegs because why not
-
 import sys
 import os
 import json
