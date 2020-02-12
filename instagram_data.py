@@ -1,3 +1,5 @@
+# TODO: also change mdate of jpegs because why not
+
 import sys
 import os
 import json
@@ -14,7 +16,6 @@ def create_dir(name):
 		return
 	os.system("mkdir " + out_path + name)
 	dirs.append(name)
-
 
 out_path = "~/instagram_data/"
 if len(sys.argv) == 1:
@@ -48,25 +49,21 @@ for index in data:
 				caption = ""
 			filename = file_path.split('/')[-1]
 			extension = filename.split('.')[-1]
+			dt = datetime.datetime.strptime(taken_at, '%Y-%m-%dT%H:%M:%S')
+			atime = time.time()
+			mtime = dt.timestamp()
+			output_file_path = out_path + index + "/" + filename
 			if extension == "mp4":
 				result = os.system('cp ' + path + file_path + ' ' + out_path + "/" + index)
 				if result != 0:
 					not_found += 1
 					continue
-				dt = datetime.datetime.strptime(taken_at, '%Y-%m-%dT%H:%M:%S')
-				atime = time.time()
-				mtime = dt.timestamp()
-				output_file_path = os.path.expanduser(out_path) + index + "/" + filename
-				# print(filename, dt)
-				os.utime(output_file_path, (atime, mtime))
-				found += 1
 			elif extension == "jpg":
 				try:
 					image = Image.open(path + file_path)
-					found += 1
-					dt = taken_at.replace('-', ':').replace('T', ' ')
+					exif_dt = taken_at.replace('-', ':').replace('T', ' ')
 					zeroth = {
-						piexif.ImageIFD.DateTime: dt
+						piexif.ImageIFD.DateTime: exif_dt
 					}
 					comment = piexif.helper.UserComment.dump(caption)
 					exif = {
@@ -74,12 +71,15 @@ for index in data:
 					}
 					exif_dict = {"0th": zeroth, "Exif": exif}
 					exif_bytes = piexif.dump(exif_dict)
-					out_file = out_path + index + "/" + filename
-					os.makedirs(os.path.dirname(out_file), exist_ok=True)
-					image.save(out_file, 'jpeg', exif=exif_bytes)
+					os.makedirs(os.path.dirname(output_file_path), exist_ok=True)
+					image.save(output_file_path, 'jpeg', exif=exif_bytes)
 				except FileNotFoundError:
 					not_found += 1
+					continue
+			os.utime(output_file_path, (atime, mtime))
+			found += 1
 		except KeyError:
+			print("Key Error")
 			continue
 	print("Written:", found)
 	print("Not found:", not_found)
