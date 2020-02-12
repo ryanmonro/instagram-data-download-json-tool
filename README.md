@@ -1,16 +1,14 @@
 # Instagram Data Download JSON Tool
 
-Restores the date and time of photos downloaded from Instagram using the Data Download tool.
+Exports photos and videos from Instagram Data Download data, reuniting them with the dates/times they were uploaded.
 
 ## Background
 
 Since Facebook went into PR crisis mode in early 2018, they have introduced a number of features that allow you to 'download all your data', to dissuade people from thinking the company is collecting data about you and you'll never find out what it is. Enter the reassuringly named Data Download feature of Instagram.
 
-One good thing to do with the photos in the Data Download is to upload them to Google Photos, for safe keeping. Unfortunately, the metadata of all the photos is gone, and the file creation dates are set to whatever date you requested the Data Download. Which is useless. The download also contains a bunch of JSON files, one of which contains all the date/times of when the photos were uploaded through the Instagram app. 
+One good thing to do with the photos in the Data Download is to upload them somewhere else, such as Google Photos, for safe keeping. Unfortunately, the metadata of all the photos is gone, and the file creation dates are set to whatever date you requested the Data Download. Which is useless. The download also contains a bunch of JSON files, one of which contains all the date/times of when the photos were uploaded through the Instagram app. 
 
-This script reunites the photos with their long-lost date/times. It also puts the photo caption in the EXIF User Comment field, but Google Photos ignores this.
-
-Coming soon: a solution for the video files.
+This script outputs the photos with the date and caption in their EXIF data, and the videos are written with the correct modified date. Google Photos (and possible other photo managers) will recognise these as the dates of the photos/videos. Reunited and it feels so good.
 
 ## Installation
 
@@ -32,17 +30,15 @@ Install the packages:
 
 Activate the virtual environment (if you haven't already) as above.
 
-Run the script, replacing `path` with the path to your folder containing media.json and the photos folder (ie `~/Downloads/markzuckerberg_part_2`:
+Run the script, replacing `path` with the path to your folder containing media.json (ie `~/Downloads/markzuckerberg_part_2`:
 
-If you want the `photos,` run this:
-`python photos.py [path]`
+Run the script, specifying the path:
+`python instagram_data.py [path]`
 
+It will spit out all the images and videos it can find. You can also specify an output folder, but that's optional.
 
-For videos:
-`python videos.py [path]`
+My download came in three folders, and only folders 2 and 3 contained a media.json file. Your mileage may vary, especially if you posted more photos than I did.
 
-It should spit out the images/videos, in a new folder.
+## Problems?
 
-## Coming soon:
-
-One tool to rule them all! A script that pulls everything it finds out of media.json and exports all the photos and videos. Wouldn't it be nice?
+Get in touch, I'd love this to be useful for everyone trying to make sense of their Instagram data.
