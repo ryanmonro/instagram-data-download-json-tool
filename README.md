@@ -39,6 +39,8 @@ It will spit out all the images and videos it can find. You can also specify an 
 
 My download came in three folders, and only folders 2 and 3 contained a media.json file. Your mileage may vary, especially if you posted more photos than I did.
 
+note: as far as I can tell, any posts that are 'not found' are ones that you've deleted from inside the app. Instagram handily reminds you that they once existed, but reassuringly doesn't give you a copy of the thing you deleted.
+
 ## Problems?
 
 Get in touch, I'd love this to be useful for everyone trying to make sense of their Instagram data.
