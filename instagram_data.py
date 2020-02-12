@@ -9,7 +9,7 @@ from PIL import Image
 
 # Get input path
 if len(sys.argv) == 1:
-	exit("Usage: exif [path/to/ig/data/download]")
+	exit("Usage: python instagram_data path/to/ig/data/download [output_path]")
 path = os.path.join(sys.argv[1], "")
 print("Using " + path + " as input path")
 

@@ -2,14 +2,6 @@
 
 Exports photos and videos from Instagram Data Download data, reuniting them with the dates/times they were uploaded.
 
-## Background
-
-Since Facebook went into PR crisis mode in early 2018, they have introduced a number of features that allow you to 'download all your data', to dissuade people from thinking the company is collecting data about you and you'll never find out what it is. Enter the reassuringly named Data Download feature of Instagram.
-
-One good thing to do with the photos in the Data Download is to upload them somewhere else, such as Google Photos, for safe keeping. Unfortunately, the metadata of all the photos is gone, and the file creation dates are set to whatever date you requested the Data Download. Which is useless. The download also contains a bunch of JSON files, one of which contains all the date/times of when the photos were uploaded through the Instagram app. 
-
-This script outputs the photos and videos with the correct modified date. The photos will also contain the date and caption in their EXIF data. Reunited and it feels so good.
-
 ## Installation
 
 Install Python 3.
@@ -35,11 +27,13 @@ Run the script, replacing `path` with the path to your folder containing media.j
 Run the script, specifying the path:
 `python instagram_data.py [path]`
 
-It will spit out all the images and videos it can find. You can also specify an output folder, but that's optional.
+You can also specify an output folder, but that's optional.
+
+The script will copy all the images and videos it can find. They will have a `modified date` according to the `taken_at` attribute in the JSON file, and photos will also have dates and captions added to their EXIF data. 
 
 My download came in three folders, and only folders 2 and 3 contained a media.json file. Your mileage may vary, especially if you posted more photos than I did.
 
-note: as far as I can tell, any posts that are 'not found' are ones that you've deleted from inside the app. Instagram handily reminds you that they once existed, but reassuringly doesn't give you a copy of the thing you deleted.
+As far as I can tell, any posts that are 'not found' are ones that you've deleted from inside the app. Instagram handily reminds you that they once existed, but reassuringly doesn't give you a copy of the thing you deleted.
 
 ## Problems?
 
